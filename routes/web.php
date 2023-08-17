@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return view('users.index');
 });
+Route::get('/users/{id}', [ShowController::class, 'index'])->name('users.show');

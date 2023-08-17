@@ -2,12 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 
 class UsersTable extends Component
 {
     public function render()
     {
-        return view('livewire.users-table');
+        return view('livewire.users-table', [
+            'users' => User::orderby('id', 'desc')->get()
+        ]);
     }
 }
